@@ -16,23 +16,23 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo "Building project..."'
+                echo "Building project..."
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "Running tests..."'
+                echo "Running tests..."
             }
         }
         stage('Docker Build') {
             steps {
-                sh "docker build -t C:\mombay-madiyar-devops{IMAGE_NAME} ."
+                sh "docker build -t mombay-madiyar-devops ."
             }
         }
         stage('Docker Run') {
             steps {
-                sh "docker rm -f C:\mombay-madiyar-devops{CONTAINER_NAME} || true"
-                sh "docker run --name C:\mombay-madiyar-devops{CONTAINER_NAME} -e STUDENT_NAME=C:\mombay-madiyar-devops{STUDENT_NAME} -e STUDENT_SURNAME=C:\mombay-madiyar-devops{STUDENT_SURNAME} -e STUDENT_GROUP=C:\mombay-madiyar-devops{STUDENT_GROUP} -e STUDENT_ID=C:\mombay-madiyar-devops{STUDENT_ID} C:\mombay-madiyar-devops{IMAGE_NAME}"
+                sh "docker rm -f mombay-madiyar-container || true"
+                sh "docker run --name mombay-madiyar-container -e STUDENT_NAME=Madiyar -e STUDENT_SURNAME=Mombay -e STUDENT_GROUP=IT2-2304 -e STUDENT_ID=37456 mombay-madiyar-devops"
             }
         }
     }

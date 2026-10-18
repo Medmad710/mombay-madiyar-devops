@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: mombay-madiyar-devops
+    container_name: mombay-madiyar-container
+    environment:
+      - STUDENT_NAME=Madiyar
+      - STUDENT_SURNAME=Mombay
+      - STUDENT_GROUP=IT2-2304
+      - STUDENT_ID=37456
